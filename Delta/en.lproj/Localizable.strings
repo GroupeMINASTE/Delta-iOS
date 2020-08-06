@@ -72,6 +72,7 @@
 "status_failed" = "Failed to update!";
 "status_error" = "Something went wrong during the request…";
 "status_offline" = "It seems that you're offline!";
+"status_originDown" = "It seems that our server is offline. Please try again later!";
 "status_notFound" = "The content you're looking for doesn't exist";
 "status_unauthorized" = "You don't have the right to access to this content";
 "status_loading" = "Loading…";

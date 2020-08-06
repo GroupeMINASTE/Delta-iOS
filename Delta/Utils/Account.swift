@@ -62,7 +62,7 @@ class Account: Codable {
                 if let owned = account.algorithms {
                     Database.current.updateOwned(owned: owned)
                 }
-            } else if status != .offline {
+            } else if status != .error && status != .offline && status != .originDown {
                 // Remove access token (invalid)
                 self.access_token = nil
                 let _ = Account.keychain.remove(forKey: "access_token")
