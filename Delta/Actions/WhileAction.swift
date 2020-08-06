@@ -48,7 +48,7 @@ class WhileAction: ActionBlock {
     }
     
     func checkCondition(in process: Process) -> Bool {
-        return (TokenParser(self.condition, in: process).execute().compute(with: process.variables, format: false) as? Equation)?.isTrue(with: process.variables) ?? false
+        return (TokenParser(self.condition, in: process).execute().compute(with: process.variables, mode: .simplify) as? Equation)?.isTrue(with: process.variables) ?? false
     }
     
     func toString() -> String {

@@ -16,13 +16,13 @@ struct Number: Token {
         return "\(value)"
     }
     
-    func compute(with inputs: [String: Token], format: Bool) -> Token {
+    func compute(with inputs: [String: Token], mode: ComputeMode) -> Token {
         return self
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String: Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String: Token], mode: ComputeMode) -> Token {
         // Compute right
-        let right = right.compute(with: inputs, format: format)
+        let right = right.compute(with: inputs, mode: mode)
         
         // Sum
         if operation == .addition {
@@ -174,7 +174,7 @@ struct Number: Token {
         }
         
         // Delegate to default
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

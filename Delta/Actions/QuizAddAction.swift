@@ -21,7 +21,7 @@ class QuizAddAction: Action {
     func execute(in process: Process) {
         if let quiz = process.quiz {
             if let correct = correct {
-                quiz.addQuestion(text.replaceTokens(in: process), correct: TokenParser(correct, in: process).execute().compute(with: process.variables, format: false))
+                quiz.addQuestion(text.replaceTokens(in: process), correct: TokenParser(correct, in: process).execute().compute(with: process.variables, mode: .simplify))
             } else {
                 quiz.addParagraph(text.replaceTokens(in: process))
             }

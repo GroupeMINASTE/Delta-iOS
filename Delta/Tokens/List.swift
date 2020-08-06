@@ -16,11 +16,11 @@ struct List: Token {
         return "{\(values.map { $0.toString() }.joined(separator: ", "))}"
     }
     
-    func compute(with inputs: [String: Token], format: Bool) -> Token {
+    func compute(with inputs: [String: Token], mode: ComputeMode) -> Token {
         return self
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String: Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String: Token], mode: ComputeMode) -> Token {
         // Compute right
         //let right = right.compute(with: inputs)
         

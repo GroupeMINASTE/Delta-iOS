@@ -17,9 +17,9 @@ struct Function: Token {
         return "\(name)(\(parameter.toString()))"
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Prepare func handling
-        let parameter = self.parameter.compute(with: inputs, format: format)
+        let parameter = self.parameter.compute(with: inputs, mode: mode)
         var expression: Token
         var variable: String
         
@@ -74,11 +74,11 @@ struct Function: Token {
         }
         
         // Return computed expression
-        return expression.compute(with: values, format: format)
+        return expression.compute(with: values, mode: mode)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

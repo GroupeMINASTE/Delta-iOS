@@ -14,11 +14,11 @@ struct CalculError: Token, Error {
         return "error_calcul".localized()
     }
     
-    func compute(with inputs: [String: Token], format: Bool) -> Token {
+    func compute(with inputs: [String: Token], mode: ComputeMode) -> Token {
         return self
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String: Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String: Token], mode: ComputeMode) -> Token {
         return self
     }
     

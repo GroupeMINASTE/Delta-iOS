@@ -11,8 +11,8 @@ import Foundation
 protocol Token {
     
     func toString() -> String
-    func compute(with inputs: [String: Token], format: Bool) -> Token
-    func apply(operation: Operation, right: Token, with inputs: [String: Token], format: Bool) -> Token
+    func compute(with inputs: [String: Token], mode: ComputeMode) -> Token
+    func apply(operation: Operation, right: Token, with inputs: [String: Token], mode: ComputeMode) -> Token
     func needBrackets(for operation: Operation) -> Bool
     func getMultiplicationPriority() -> Int
     func opposite() -> Token
@@ -25,9 +25,9 @@ protocol Token {
 
 extension Token {
     
-    func defaultApply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
+    func defaultApply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Compute right
-        let right = right.compute(with: inputs, format: format)
+        let right = right.compute(with: inputs, mode: mode)
         
         // Sum
         if operation == .addition {
@@ -38,7 +38,7 @@ extension Token {
             
             // Left and right are the same
             if equals(right) {
-                return Product(values: [self, Number(value: 2)]).compute(with: inputs, format: format)
+                return Product(values: [self, Number(value: 2)]).compute(with: inputs, mode: mode)
             }
             
             return Sum(values: [self, right])
@@ -46,7 +46,7 @@ extension Token {
         
         // Difference
         if operation == .subtraction {
-            return Sum(values: [self, right.opposite()]).compute(with: inputs, format: format)
+            return Sum(values: [self, right.opposite()]).compute(with: inputs, mode: mode)
         }
         
         // Product
@@ -58,28 +58,28 @@ extension Token {
             
             // Left and right are the same
             if equals(right) {
-                return Power(token: self, power: Number(value: 2)).compute(with: inputs, format: format)
+                return Power(token: self, power: Number(value: 2)).compute(with: inputs, mode: mode)
             }
             
             // If we keep format
-            if format {
+            if mode == .formatted {
                 return Product(values: [self, right])
             }
             
             // Right is a fraction
             if let right = right as? Fraction {
                 // a/b * c = ac/b
-                return Fraction(numerator: Product(values: [self, right.numerator]), denominator: right.denominator).compute(with: inputs, format: format)
+                return Fraction(numerator: Product(values: [self, right.numerator]), denominator: right.denominator).compute(with: inputs, mode: mode)
             }
             
             // Right is a sum
             if let right = right as? Sum {
-                return Sum(values: right.values.map{ Product(values: [$0, self]) }).compute(with: inputs, format: format)
+                return Sum(values: right.values.map{ Product(values: [$0, self]) }).compute(with: inputs, mode: mode)
             }
             
             // Right is a vector
             if let right = right as? Vector {
-                return right.apply(operation: operation, right: self, with: inputs, format: format)
+                return right.apply(operation: operation, right: self, with: inputs, mode: mode)
             }
             
             return Product(values: [self, right])
@@ -125,7 +125,7 @@ extension Token {
             }
             
             // Return the fraction
-            return Fraction(numerator: Product(values: leftValues).compute(with: inputs, format: format), denominator: Product(values: rightValues).compute(with: inputs, format: format))
+            return Fraction(numerator: Product(values: leftValues).compute(with: inputs, mode: mode), denominator: Product(values: rightValues).compute(with: inputs, mode: mode))
         }
         
         // Modulo

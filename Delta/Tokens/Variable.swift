@@ -16,19 +16,19 @@ struct Variable: Token {
         return name
     }
     
-    func compute(with inputs: [String: Token], format: Bool) -> Token {
+    func compute(with inputs: [String: Token], mode: ComputeMode) -> Token {
         // Chech if an input corresponds to this variable
         if let value = inputs[name] {
-            return value.compute(with: inputs, format: false)
+            return value.compute(with: inputs, mode: .simplify)
         }
         
         // No input found
         return self
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String: Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String: Token], mode: ComputeMode) -> Token {
         // Compute right
-        let right = right.compute(with: inputs, format: format)
+        let right = right.compute(with: inputs, mode: mode)
         
         // Power
         if operation == .power {
@@ -49,7 +49,7 @@ struct Variable: Token {
                         return Product(values: [Number(value: -1), self])
                     }
                     // Simplificated power of i
-                    return Power(token: self, power: Number(value: number.value % 4)).compute(with: inputs, format: format)
+                    return Power(token: self, power: Number(value: number.value % 4)).compute(with: inputs, mode: mode)
                 }
             }
             // Check for e
@@ -67,7 +67,7 @@ struct Variable: Token {
         }
         
         // Delegate to default
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

@@ -23,14 +23,14 @@ class PrintAction: Action {
         let value = TokenParser(identifier, in: process).execute()
         
         // Print it (add it to output)
-        if approximated, let asDouble = value.compute(with: process.variables, format: false).asDouble() {
+        if approximated, let asDouble = value.compute(with: process.variables, mode: .simplify).asDouble() {
             if floor(asDouble) == asDouble {
                 process.outputs.append("\(identifier) = \(Int(asDouble))")
             } else {
                 process.outputs.append("\(identifier) = \(asDouble)")
             }
         } else {
-            process.outputs.append("\(identifier) = \(value.compute(with: process.variables, format: true).toString())")
+            process.outputs.append("\(identifier) = \(value.compute(with: process.variables, mode: .formatted).toString())")
         }
     }
     

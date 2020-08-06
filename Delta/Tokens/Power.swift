@@ -17,9 +17,9 @@ struct Power: Token {
         return "\(token.needBrackets(for: .power) ? "(\(token.toString()))" : token.toString()) ^ \(power.needBrackets(for: .power) ? "(\(power.toString()))" : power.toString())"
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
-        let token = self.token.compute(with: inputs, format: format)
-        let power = self.power.compute(with: inputs, format: format)
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
+        let token = self.token.compute(with: inputs, mode: mode)
+        let power = self.power.compute(with: inputs, mode: mode)
         
         // Check power
         if let number = power as? Number {
@@ -30,25 +30,25 @@ struct Power: Token {
         }
         if let fraction = power as? Fraction {
             // x^1/y is ^y√(x)
-            if let number = fraction.inverse().compute(with: inputs, format: format) as? Number {
-                return Root(token: token, power: number).compute(with: inputs, format: format)
+            if let number = fraction.inverse().compute(with: inputs, mode: mode) as? Number {
+                return Root(token: token, power: number).compute(with: inputs, mode: mode)
             }
         }
         
-        return token.apply(operation: .power, right: power, with: inputs, format: format)
+        return token.apply(operation: .power, right: power, with: inputs, mode: mode)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Product
         if operation == .multiplication {
             // Token and right are the same
             if token.equals(right) {
-                return Power(token: token, power: Sum(values: [power, Number(value: 1)])).compute(with: inputs, format: format)
+                return Power(token: token, power: Sum(values: [power, Number(value: 1)])).compute(with: inputs, mode: mode)
             }
         }
         
         // Delegate to default
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

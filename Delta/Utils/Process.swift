@@ -30,7 +30,7 @@ class Process {
             variables[f[0][1]] = FunctionDeclaration(variable: f[0][2], token: value)
         } else {
             // Set it as a variable
-            variables[trimmed] = value.compute(with: variables, format: false)
+            variables[trimmed] = value.compute(with: variables, mode: .simplify)
         }
     }
     

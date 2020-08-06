@@ -71,7 +71,7 @@ enum Operation: String {
         }
         
         // Simple expression
-        return left.apply(operation: self, right: right, with: inputs, format: true)
+        return left.apply(operation: self, right: right, with: inputs, mode: .formatted)
     }
     
 }

@@ -66,9 +66,9 @@ struct Product: Token {
         return string
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Compute all values
-        var values = self.values.map{ $0.compute(with: inputs, format: format) }.sorted{ $0.getMultiplicationPriority() > $1.getMultiplicationPriority() }
+        var values = self.values.map{ $0.compute(with: inputs, mode: mode) }.sorted{ $0.getMultiplicationPriority() > $1.getMultiplicationPriority() }
         
         // Some required vars
         var index = 0
@@ -96,7 +96,7 @@ struct Product: Token {
                         let otherValue = values[i]
                         
                         // Multiply them
-                        let product = value.apply(operation: .multiplication, right: otherValue, with: inputs, format: format)
+                        let product = value.apply(operation: .multiplication, right: otherValue, with: inputs, mode: mode)
                         
                         // If it is simpler than a product
                         if product as? Product == nil {
@@ -149,12 +149,12 @@ struct Product: Token {
         return Product(values: values)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Compute right
-        let right = right.compute(with: inputs, format: format)
+        let right = right.compute(with: inputs, mode: mode)
         
         // If addition
-        if operation == .addition && !format {
+        if operation == .addition && (mode == .simplify || mode == .factorize) {
             // Right is a product
             let right = right as? Product ?? Product(values: [right])
             
@@ -197,7 +197,7 @@ struct Product: Token {
             // Check if factors are not empty
             if !factors.isEmpty {
                 // Create a product with common factors
-                return Product(values: factors + [Sum(values: [Product(values: leftValues), Product(values: rightValues)]).compute(with: inputs, format: format)])
+                return Product(values: factors + [Sum(values: [Product(values: leftValues), Product(values: rightValues)]).compute(with: inputs, mode: mode)])
             }
         }
         
@@ -218,7 +218,7 @@ struct Product: Token {
         }
         
         // Delegate to default
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

@@ -17,12 +17,12 @@ struct FunctionDeclaration: Token {
         return token.toString()
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
         return self
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
-        return FunctionDeclaration(variable: variable, token: token.apply(operation: operation, right: right, with: inputs, format: true))
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
+        return FunctionDeclaration(variable: variable, token: token.apply(operation: operation, right: right, with: inputs, mode: .formatted))
     }
     
     func needBrackets(for operation: Operation) -> Bool {

@@ -127,7 +127,7 @@ extension String {
             
             // Replace with tokens
             if let range = output.range(of: group[0]) {
-                output = output.replacingCharacters(in: range, with: token.compute(with: process.variables, format: true).toString())
+                output = output.replacingCharacters(in: range, with: token.compute(with: process.variables, mode: .formatted).toString())
             }
         }
         

@@ -16,12 +16,12 @@ struct FormattedToken: Token {
         token.toString()
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
-        token.compute(with: inputs, format: true)
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
+        token.compute(with: inputs, mode: .formatted)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
-        token.apply(operation: operation, right: right, with: inputs, format: true)
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
+        token.apply(operation: operation, right: right, with: inputs, mode: .formatted)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

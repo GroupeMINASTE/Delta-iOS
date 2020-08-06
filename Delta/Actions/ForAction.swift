@@ -32,7 +32,7 @@ class ForAction: ActionBlock {
         }
         
         // Get computed token
-        let token = TokenParser(self.token, in: process).execute().compute(with: process.variables, format: false)
+        let token = TokenParser(self.token, in: process).execute().compute(with: process.variables, mode: .simplify)
         
         // Get list
         if let list = token as? List {

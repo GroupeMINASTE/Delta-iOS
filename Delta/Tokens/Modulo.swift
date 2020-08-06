@@ -17,9 +17,9 @@ struct Modulo: Token {
         return "\(dividend.needBrackets(for: .division) ? "(\(dividend.toString()))" : dividend.toString()) % \(divisor.needBrackets(for: .division) ? "(\(divisor.toString()))" : divisor.toString())"
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
-        let dividend = self.dividend.compute(with: inputs, format: format)
-        let divisor = self.divisor.compute(with: inputs, format: format)
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
+        let dividend = self.dividend.compute(with: inputs, mode: mode)
+        let divisor = self.divisor.compute(with: inputs, mode: mode)
         
         // Check dividend
         if let number = dividend as? Number {
@@ -38,11 +38,11 @@ struct Modulo: Token {
         }
         
         // Apply to simplify
-        return dividend.apply(operation: .modulo, right: divisor, with: inputs, format: format)
+        return dividend.apply(operation: .modulo, right: divisor, with: inputs, mode: mode)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

@@ -17,16 +17,16 @@ struct Root: Token {
         return "√(\(token.toString()))"
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
-        let token = self.token.compute(with: inputs, format: format)
-        let power = self.power.compute(with: inputs, format: format)
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
+        let token = self.token.compute(with: inputs, mode: mode)
+        let power = self.power.compute(with: inputs, mode: mode)
         
-        return token.apply(operation: .root, right: power, with: inputs, format: format)
+        return token.apply(operation: .root, right: power, with: inputs, mode: mode)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Compute right
-        let right = right.compute(with: inputs, format: format)
+        let right = right.compute(with: inputs, mode: mode)
         
         // Power
         if operation == .power {
@@ -41,11 +41,11 @@ struct Root: Token {
         
         // Root
         if operation == .root {
-            return Root(token: token, power: Product(values: [power, right]).compute(with: inputs, format: format))
+            return Root(token: token, power: Product(values: [power, right]).compute(with: inputs, mode: mode))
         }
         
         // Delegate to default
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

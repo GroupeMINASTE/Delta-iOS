@@ -49,9 +49,9 @@ struct Sum: Token {
         return string
     }
     
-    func compute(with inputs: [String : Token], format: Bool) -> Token {
+    func compute(with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Compute all values
-        var values = self.values.map{ $0.compute(with: inputs, format: format) }
+        var values = self.values.map{ $0.compute(with: inputs, mode: mode) }
         
         // Some required vars
         var index = 0
@@ -79,7 +79,7 @@ struct Sum: Token {
                         let otherValue = values[i]
                         
                         // Sum them
-                        let sum = value.apply(operation: .addition, right: otherValue, with: inputs, format: format)
+                        let sum = value.apply(operation: .addition, right: otherValue, with: inputs, mode: mode)
                         
                         // If it is simpler than a sum
                         if sum as? Sum == nil {
@@ -126,9 +126,9 @@ struct Sum: Token {
         return Sum(values: values)
     }
     
-    func apply(operation: Operation, right: Token, with inputs: [String : Token], format: Bool) -> Token {
+    func apply(operation: Operation, right: Token, with inputs: [String : Token], mode: ComputeMode) -> Token {
         // Compute right
-        let right = right.compute(with: inputs, format: format)
+        let right = right.compute(with: inputs, mode: mode)
         
         // If addition
         if operation == .addition {
@@ -145,13 +145,13 @@ struct Sum: Token {
         // If product
         if operation == .multiplication {
             // If we keep format
-            if format {
+            if mode == .formatted {
                 return Product(values: [self, right])
             }
             
             // Right is a sum
             if let right = right as? Sum {
-                return Sum(values: values.map { $0.apply(operation: .multiplication, right: right, with: inputs, format: format) }).compute(with: inputs, format: format)
+                return Sum(values: values.map { $0.apply(operation: .multiplication, right: right, with: inputs, mode: mode) }).compute(with: inputs, mode: mode)
             }
             
             // Return the product
@@ -159,7 +159,7 @@ struct Sum: Token {
         }
         
         // Delegate to default
-        return defaultApply(operation: operation, right: right, with: inputs, format: format)
+        return defaultApply(operation: operation, right: right, with: inputs, mode: mode)
     }
     
     func needBrackets(for operation: Operation) -> Bool {

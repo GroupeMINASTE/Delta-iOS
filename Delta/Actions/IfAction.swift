@@ -26,7 +26,7 @@ class IfAction: ActionBlock {
     
     func execute(in process: Process) {
         // Get computed condition and check it
-        if let condition = TokenParser(self.condition, in: process).execute().compute(with: process.variables, format: false) as? Equation, condition.isTrue(with: process.variables) {
+        if let condition = TokenParser(self.condition, in: process).execute().compute(with: process.variables, mode: .simplify) as? Equation, condition.isTrue(with: process.variables) {
             // Execute actions
             for action in actions {
                 action.execute(in: process)
