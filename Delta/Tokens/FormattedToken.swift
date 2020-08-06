@@ -40,6 +40,10 @@ struct FormattedToken: Token {
         token.inverse()
     }
     
+    func equals(_ right: Token) -> Bool {
+        token.defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         token.asDouble()
     }

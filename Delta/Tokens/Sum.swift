@@ -178,6 +178,10 @@ struct Sum: Token {
         return Fraction(numerator: Number(value: 1), denominator: self)
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         var val = 0.0
         

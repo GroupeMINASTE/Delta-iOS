@@ -49,6 +49,10 @@ struct Interval: Token {
         return self
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         return nil
     }

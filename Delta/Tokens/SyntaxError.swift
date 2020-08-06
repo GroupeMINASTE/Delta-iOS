@@ -38,6 +38,10 @@ struct SyntaxError: Token, Error {
         return self
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         return nil
     }

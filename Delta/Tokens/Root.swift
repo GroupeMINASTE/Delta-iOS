@@ -64,6 +64,10 @@ struct Root: Token {
         return Fraction(numerator: Number(value: 1), denominator: self)
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         if let token = token.asDouble(), let power = power.asDouble() {
             return pow(token, 1/power)

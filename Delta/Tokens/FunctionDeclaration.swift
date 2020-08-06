@@ -41,6 +41,10 @@ struct FunctionDeclaration: Token {
         return FunctionDeclaration(variable: variable, token: token.inverse())
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         return token.asDouble()
     }

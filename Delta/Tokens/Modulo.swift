@@ -61,6 +61,10 @@ struct Modulo: Token {
         return Fraction(numerator: Number(value: 1), denominator: self)
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         if let dividend = dividend.asDouble(), let divisor = divisor.asDouble() {
             return dividend.truncatingRemainder(dividingBy: divisor)

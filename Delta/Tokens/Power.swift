@@ -42,7 +42,7 @@ struct Power: Token {
         // Product
         if operation == .multiplication {
             // Token and right are the same
-            if token.toString() == right.toString() {
+            if token.equals(right) {
                 return Power(token: token, power: Sum(values: [power, Number(value: 1)])).compute(with: inputs, format: format)
             }
         }
@@ -65,6 +65,10 @@ struct Power: Token {
     
     func inverse() -> Token {
         return Fraction(numerator: Number(value: 1), denominator: self)
+    }
+    
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
     }
     
     func asDouble() -> Double? {

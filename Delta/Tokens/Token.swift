@@ -17,6 +17,7 @@ protocol Token {
     func getMultiplicationPriority() -> Int
     func opposite() -> Token
     func inverse() -> Token
+    func equals(_ right: Token) -> Bool
     func asDouble() -> Double?
     func getSign() -> FloatingPointSign
     
@@ -36,7 +37,7 @@ extension Token {
             }
             
             // Left and right are the same
-            if toString() == right.toString() {
+            if equals(right) {
                 return Product(values: [self, Number(value: 2)]).compute(with: inputs, format: format)
             }
             
@@ -56,7 +57,7 @@ extension Token {
             }
             
             // Left and right are the same
-            if toString() == right.toString() {
+            if equals(right) {
                 return Power(token: self, power: Number(value: 2)).compute(with: inputs, format: format)
             }
             
@@ -99,7 +100,7 @@ extension Token {
                 var rightIndex = 0
                 while rightIndex < rightValues.count {
                     // Check if left and right are the same
-                    if leftValues[leftIndex].toString() == rightValues[rightIndex].toString() {
+                    if leftValues[leftIndex].equals(rightValues[rightIndex]) {
                         // We have a common factor
                         leftValues[leftIndex] = Number(value: 1)
                         rightValues[rightIndex] = Number(value: 1)
@@ -146,6 +147,16 @@ extension Token {
         
         // Unknown, return a calcul error
         return CalculError()
+    }
+    
+    func defaultEquals(_ right: Token) -> Bool {
+        // Compare value (if possible)
+        if let leftDouble = asDouble(), let rightDouble = right.asDouble() {
+            return leftDouble == rightDouble
+        }
+        
+        // Compare string
+        return toString() == right.toString()
     }
     
 }

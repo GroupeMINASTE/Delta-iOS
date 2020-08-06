@@ -97,6 +97,10 @@ struct Function: Token {
         return Fraction(numerator: Number(value: 1), denominator: self)
     }
     
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
+    }
+    
     func asDouble() -> Double? {
         // Chech if an input corresponds to this variable
         if TokenParser.funcs.contains(name), let paramDouble = parameter.asDouble() {

@@ -168,7 +168,7 @@ struct Product: Token {
                 var rightIndex = 0
                 while rightIndex < rightValues.count {
                     // Check if left and right are the same
-                    if leftValues[leftIndex].toString() == rightValues[rightIndex].toString() {
+                    if leftValues[leftIndex].equals(rightValues[rightIndex]) {
                         // We have a common factor
                         factors += [leftValues[leftIndex]]
                         leftValues[leftIndex] = Number(value: 1)
@@ -235,6 +235,10 @@ struct Product: Token {
     
     func inverse() -> Token {
         return Fraction(numerator: Number(value: 1), denominator: self)
+    }
+    
+    func equals(_ right: Token) -> Bool {
+        return defaultEquals(right)
     }
     
     func asDouble() -> Double? {
