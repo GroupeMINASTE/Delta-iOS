@@ -122,3 +122,8 @@
 "download_account" = "Télécharger mes données";
 "delete_account_description" = "Êtes vous sur de vouloir supprimer votre compte ? Cette action est irréversible !";
 "more" = "Plus…";
+"category_list" = "Liste";
+"action_list_remove" = "Enlever %@ de %@";
+"action_list_add" = "Ajouter %@ à %@";
+"action_list_create" = "Créer une liste %@";
+"status_originDown" = "Il semblerait que notre serveur soit hors ligne. Réessayez plus tard !";
