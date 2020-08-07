@@ -25,6 +25,7 @@ enum Keyword: String {
     case To = "to"
     case From = "from"
     case While = "while"
+    case ListCreate = "list_create"
     case ListAdd = "list_add"
     case ListRemove = "list_remove"
     case QuizInit = "quiz_init"

@@ -182,6 +182,7 @@ class AlgorithmParser {
                 Keyword.PrintText,
                 Keyword.Unset,
                 Keyword.While,
+                Keyword.ListCreate,
                 Keyword.QuizInit,
                 Keyword.QuizAdd,
                 Keyword.QuizShow
@@ -288,6 +289,10 @@ class AlgorithmParser {
                         // While "condition"
                         let condition = tokens.removeFirst()
                         return WhileAction(condition, do: [])
+                    } else if value == .ListCreate && tokens.count >= 1 {
+                        // Create list "identifier"
+                        let identifier = tokens.removeFirst()
+                        return ListCreateAction(identifier)
                     } else if value == .QuizInit && tokens.count >= 1 {
                         // Init quiz "text"
                         let text = tokens.removeFirst()

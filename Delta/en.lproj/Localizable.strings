@@ -96,6 +96,7 @@
 "action_end" = "End";
 "action_while" = "While %@";
 "action_for" = "For %@ in %@";
+"action_list_create" = "Create list %@";
 "action_list_add" = "Add %@ to %@";
 "action_list_remove" = "Remove %@ from %@";
 "action_quiz_init" = "Init quiz %@";

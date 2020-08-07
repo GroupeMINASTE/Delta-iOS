@@ -32,6 +32,7 @@
 		6A16E407234A547400089765 /* SetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A16E406234A547400089765 /* SetAction.swift */; };
 		6A16E409234A60BB00089765 /* IfAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A16E408234A60BB00089765 /* IfAction.swift */; };
 		6A1B207A24DDADEC00B61A8F /* ListRemoveAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B207924DDADEC00B61A8F /* ListRemoveAction.swift */; };
+		6A1B207E24DDB5BB00B61A8F /* ListCreateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B207D24DDB5BB00B61A8F /* ListCreateAction.swift */; };
 		6A1B411124DC50A4004BE4E2 /* ComputeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B411024DC50A4004BE4E2 /* ComputeMode.swift */; };
 		6A1B411524DC5901004BE4E2 /* ListAddAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B411424DC5901004BE4E2 /* ListAddAction.swift */; };
 		6A1F488F2356F7F100B3A006 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1F488E2356F7F100B3A006 /* Interval.swift */; };
@@ -151,6 +152,7 @@
 		6A16E406234A547400089765 /* SetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAction.swift; sourceTree = "<group>"; };
 		6A16E408234A60BB00089765 /* IfAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfAction.swift; sourceTree = "<group>"; };
 		6A1B207924DDADEC00B61A8F /* ListRemoveAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRemoveAction.swift; sourceTree = "<group>"; };
+		6A1B207D24DDB5BB00B61A8F /* ListCreateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCreateAction.swift; sourceTree = "<group>"; };
 		6A1B411024DC50A4004BE4E2 /* ComputeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputeMode.swift; sourceTree = "<group>"; };
 		6A1B411424DC5901004BE4E2 /* ListAddAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAddAction.swift; sourceTree = "<group>"; };
 		6A1F488E2356F7F100B3A006 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				6A16E408234A60BB00089765 /* IfAction.swift */,
 				6AED92C0235EDB33009EEAFE /* InputAction.swift */,
 				6A1B411424DC5901004BE4E2 /* ListAddAction.swift */,
+				6A1B207D24DDB5BB00B61A8F /* ListCreateAction.swift */,
 				6A1B207924DDADEC00B61A8F /* ListRemoveAction.swift */,
 				6A16E404234A532B00089765 /* PrintAction.swift */,
 				6AC36CCD2360223400523F79 /* PrintTextAction.swift */,
@@ -619,6 +622,7 @@
 				6AB147E724BB27A3005077F3 /* LoadingTableViewCell.swift in Sources */,
 				6A99A71B24069280002C9E54 /* CloudDetailsTableViewController.swift in Sources */,
 				6A2F13AF23264D8100031DDA /* TokenParser.swift in Sources */,
+				6A1B207E24DDB5BB00B61A8F /* ListCreateAction.swift in Sources */,
 				6A0A8CBD2323BE5B00F0C41C /* InputTableViewCell.swift in Sources */,
 				6AAE8BC6235C8153000634CA /* EditorTableViewController.swift in Sources */,
 				6AED92C7235F5BAD009EEAFE /* ActionSelectionTableViewController.swift in Sources */,

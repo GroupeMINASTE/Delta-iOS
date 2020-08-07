@@ -18,20 +18,47 @@ enum EditorLineCategory: String {
     case settings = "settings"
     case add = "add"
     
-    static let values: [EditorLineCategory] = [.variable, .structure, .output, .list, .quiz]
+    static let values: [EditorLineCategory] = [
+        .variable,
+        .structure,
+        .output,
+        .list,
+        .quiz
+    ]
     
     func catalog() -> [Action] {
         switch self {
         case .variable:
-            return [InputAction("a", default: "0"), SetAction("a", to: "0"), UnsetAction("a")]
+            return [
+                InputAction("a", default: "0"),
+                SetAction("a", to: "0"),
+                UnsetAction("a")
+            ]
         case .structure:
-            return [IfAction("a = b", do: [], else: ElseAction(do: [])), WhileAction("a = b", do: []), ForAction("a", in: "b", do: [])]
+            return [
+                IfAction("a = b", do: [], else: ElseAction(do: [])),
+                WhileAction("a = b", do: []),
+                ForAction("a", in: "b", do: [])
+            ]
         case .output:
-            return [PrintAction("a"), PrintAction("a", approximated: true), PrintTextAction("Hello world!")]
+            return [
+                PrintAction("a"),
+                PrintAction("a", approximated: true),
+                PrintTextAction("Hello world!")
+            ]
         case .list:
-            return [ListAddAction("x", to: "l"), ListRemoveAction("x", to: "l")]
+            return [
+                ListCreateAction("l"),
+                ListAddAction("x", to: "l"),
+                ListRemoveAction("x", to: "l")
+            ]
         case .quiz:
-            return [QuizInitAction("Solve equations:"), QuizAddAction("2x + 1 = 0"), QuizAddAction("x", correct: "x"), QuizShowAction()]
+            return [
+                QuizInitAction("Solve equations:"),
+                QuizAddAction("2x + 1 = 0"),
+                QuizAddAction("x", correct: "x"),
+                QuizShowAction()
+            ]
         default:
             return []
         }
