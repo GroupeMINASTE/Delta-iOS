@@ -29,7 +29,7 @@ enum EditorLineCategory: String {
         case .output:
             return [PrintAction("a"), PrintAction("a", approximated: true), PrintTextAction("Hello world!")]
         case .list:
-            return [ListAddAction("x", to: "l")]
+            return [ListAddAction("x", to: "l"), ListRemoveAction("x", to: "l")]
         case .quiz:
             return [QuizInitAction("Solve equations:"), QuizAddAction("2x + 1 = 0"), QuizAddAction("x", correct: "x"), QuizShowAction()]
         default:

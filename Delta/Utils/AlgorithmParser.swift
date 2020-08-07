@@ -197,6 +197,9 @@ class AlgorithmParser {
                     Keyword.Set,
                     Keyword.ListAdd
                 ],
+                Keyword.From: [
+                    Keyword.ListRemove
+                ],
                 Keyword.Correct: [
                     Keyword.QuizAdd
                 ]
@@ -236,6 +239,11 @@ class AlgorithmParser {
                                     let identifier = tokens.removeFirst()
                                     let value = tokens.removeFirst()
                                     return ListAddAction(value, to: identifier)
+                                } else if value == .ListRemove && tokens.count >= 2 {
+                                    // Remove "value" from "identifier"
+                                    let identifier = tokens.removeFirst()
+                                    let value = tokens.removeFirst()
+                                    return ListRemoveAction(value, to: identifier)
                                 } else if value == .QuizAdd && tokens.count >= 2 {
                                     // Add input "text" with "correct" as correct answer
                                     let correct = tokens.removeFirst()

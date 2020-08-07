@@ -1,14 +1,14 @@
 //
-//  ListAddAction.swift
+//  ListRemoveAction.swift
 //  Delta
 //
-//  Created by Nathan FALLET on 06/08/2020.
+//  Created by Nathan FALLET on 07/08/2020.
 //  Copyright © 2020 Nathan FALLET. All rights reserved.
 //
 
 import Foundation
 
-class ListAddAction: Action {
+class ListRemoveAction: Action {
     
     var value: String
     var identifier: String
@@ -21,8 +21,10 @@ class ListAddAction: Action {
     func execute(in process: Process) {
         // Try to get list
         if let list = process.get(identifier: identifier) as? List {
-            // Add value to list
-            let newList = List(values: list.values + [TokenParser(value, in: process).execute().compute(with: process.variables, mode: .simplify)])
+            // Remove value from list
+            let removal = TokenParser(value, in: process).execute().compute(with: process.variables, mode: .simplify)
+            var newList = List(values: list.values)
+            newList.values.removeAll(where: { $0.equals(removal) })
             
             // Set new value with process environment
             process.set(identifier: identifier, to: newList)
@@ -30,11 +32,11 @@ class ListAddAction: Action {
     }
     
     func toString() -> String {
-        return "list_add \"\(value)\" to \"\(identifier)\""
+        return "list_remove \"\(value)\" from \"\(identifier)\""
     }
     
     func toEditorLines() -> [EditorLine] {
-        return [EditorLine(format: "action_list_add", category: .list, values: [value, identifier], movable: true)]
+        return [EditorLine(format: "action_list_remove", category: .list, values: [value, identifier], movable: true)]
     }
     
     func editorLinesCount() -> Int {
