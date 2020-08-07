@@ -21,6 +21,19 @@ class Process {
         self.inputs = inputs
     }
     
+    func get(identifier: String) -> Token? {
+        let trimmed = identifier.trimmingCharacters(in: CharacterSet(charactersIn: " "))
+        let f = trimmed.groups(for: "([\(TokenParser.variables)])\\( *([\(TokenParser.variables)]) *\\)")
+        
+        if !f.isEmpty {
+            // Take it as a function
+            return variables[f[0][1]]
+        } else {
+            // Return it as a variable
+            return variables[trimmed]
+        }
+    }
+    
     func set(identifier: String, to value: Token) {
         let trimmed = identifier.trimmingCharacters(in: CharacterSet(charactersIn: " "))
         let f = trimmed.groups(for: "([\(TokenParser.variables)])\\( *([\(TokenParser.variables)]) *\\)")

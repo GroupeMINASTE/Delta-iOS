@@ -210,6 +210,18 @@ class TokenParser {
                 
                 // Closing brace
                 else if current == "}" {
+                    // Check for an empty set
+                    if ops.first == "{" {
+                        // Check for a possible value
+                        if !values.isEmpty, let value = try? values.getFirstTokenAndRemove() {
+                            // Create a set with this value
+                            insertValue(List(values: [value]))
+                        } else {
+                            // Create an empty set
+                            insertValue(List(values: []))
+                        }
+                    }
+                    
                     // Create the token
                     while !ops.isEmpty && ops.first != "{" {
                         // Create a token

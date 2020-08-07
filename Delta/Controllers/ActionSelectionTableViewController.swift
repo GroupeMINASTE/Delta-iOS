@@ -42,20 +42,20 @@ class ActionSelectionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return EditorLineCategory.list.count
+        return EditorLineCategory.values.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return EditorLineCategory.list[section].catalog().count
+        return EditorLineCategory.values[section].catalog().count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "category_\(EditorLineCategory.list[section].rawValue)".localized()
+        return "category_\(EditorLineCategory.values[section].rawValue)".localized()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get first line
-        if let line = EditorLineCategory.list[indexPath.section].catalog()[indexPath.row].toEditorLines().first {
+        if let line = EditorLineCategory.values[indexPath.section].catalog()[indexPath.row].toEditorLines().first {
             // Return cell
             return (tableView.dequeueReusableCell(withIdentifier: "editorLockedCell", for: indexPath) as! EditorPreviewTableViewCell).with(line: line)
         }
@@ -65,7 +65,7 @@ class ActionSelectionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Get action
-        let action = EditorLineCategory.list[indexPath.section].catalog()[indexPath.row]
+        let action = EditorLineCategory.values[indexPath.section].catalog()[indexPath.row]
         
         // Call completion handler
         completionHandler(action)

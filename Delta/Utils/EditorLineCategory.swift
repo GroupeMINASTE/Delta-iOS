@@ -10,9 +10,15 @@ import Foundation
 
 enum EditorLineCategory: String {
     
-    case variable = "variable", structure = "structure", output = "output", quiz = "quiz", settings = "settings", add = "add"
+    case variable = "variable"
+    case structure = "structure"
+    case output = "output"
+    case list = "list"
+    case quiz = "quiz"
+    case settings = "settings"
+    case add = "add"
     
-    static let list: [EditorLineCategory] = [.variable, .structure, .output, .quiz]
+    static let values: [EditorLineCategory] = [.variable, .structure, .output, .list, .quiz]
     
     func catalog() -> [Action] {
         switch self {
@@ -22,6 +28,8 @@ enum EditorLineCategory: String {
             return [IfAction("a = b", do: [], else: ElseAction(do: [])), WhileAction("a = b", do: []), ForAction("a", in: "b", do: [])]
         case .output:
             return [PrintAction("a"), PrintAction("a", approximated: true), PrintTextAction("Hello world!")]
+        case .list:
+            return [ListAddAction("x", to: "l")]
         case .quiz:
             return [QuizInitAction("Solve equations:"), QuizAddAction("2x + 1 = 0"), QuizAddAction("x", correct: "x"), QuizShowAction()]
         default:

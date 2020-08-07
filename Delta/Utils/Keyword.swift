@@ -11,6 +11,23 @@ import Foundation
 enum Keyword: String {
     
     // Values
-    case Input = "input", Default = "default", For = "for", In = "in", If = "if", Else = "else", Print = "print", PrintApproximated = "print_approximated", PrintText = "print_text", Set = "set", Unset = "unset", To = "to", While = "while", QuizInit = "quiz_init", QuizAdd = "quiz_add", QuizShow = "quiz_show", Correct = "correct"
+    case Input = "input"
+    case Default = "default"
+    case For = "for"
+    case In = "in"
+    case If = "if"
+    case Else = "else"
+    case Print = "print"
+    case PrintApproximated = "print_approximated"
+    case PrintText = "print_text"
+    case Set = "set"
+    case Unset = "unset"
+    case To = "to"
+    case While = "while"
+    case ListAdd = "list_add"
+    case QuizInit = "quiz_init"
+    case QuizAdd = "quiz_add"
+    case QuizShow = "quiz_show"
+    case Correct = "correct"
     
 }

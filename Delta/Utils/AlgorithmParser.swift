@@ -174,8 +174,33 @@ class AlgorithmParser {
             keywords.removeFirst()
             
             // Keyword list
-            let alone = [Keyword.If, Keyword.Else, Keyword.Print, Keyword.PrintApproximated, Keyword.PrintText, Keyword.Unset, Keyword.While, Keyword.QuizInit, Keyword.QuizAdd, Keyword.QuizShow]
-            let grouped = [Keyword.Default: [Keyword.Input], Keyword.In: [Keyword.For], Keyword.To: [Keyword.Set], Keyword.Correct: [Keyword.QuizAdd]]
+            let alone = [
+                Keyword.If,
+                Keyword.Else,
+                Keyword.Print,
+                Keyword.PrintApproximated,
+                Keyword.PrintText,
+                Keyword.Unset,
+                Keyword.While,
+                Keyword.QuizInit,
+                Keyword.QuizAdd,
+                Keyword.QuizShow
+            ]
+            let grouped = [
+                Keyword.Default: [
+                    Keyword.Input
+                ],
+                Keyword.In: [
+                    Keyword.For
+                ],
+                Keyword.To: [
+                    Keyword.Set,
+                    Keyword.ListAdd
+                ],
+                Keyword.Correct: [
+                    Keyword.QuizAdd
+                ]
+            ]
             
             // Iterate values
             for key in grouped {
@@ -206,6 +231,11 @@ class AlgorithmParser {
                                     let token = tokens.removeFirst()
                                     let identifier = tokens.removeFirst()
                                     return SetAction(identifier, to: token)
+                                } else if value == .ListAdd && tokens.count >= 2 {
+                                    // Add "value" to "identifier"
+                                    let identifier = tokens.removeFirst()
+                                    let value = tokens.removeFirst()
+                                    return ListAddAction(value, to: identifier)
                                 } else if value == .QuizAdd && tokens.count >= 2 {
                                     // Add input "text" with "correct" as correct answer
                                     let correct = tokens.removeFirst()
