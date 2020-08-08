@@ -120,3 +120,8 @@
 "download_account" = "Скачать мои данные";
 "delete_account_success" = "Твой аккаунт был удалён!";
 "delete_account" = "Удалить мой аккаунт";
+"status_originDown" = "Похоже, что наш сервер сейчас выключен. Пожалуйста, попробуйте еще раз позже!";
+"category_list" = "Список";
+"action_list_remove" = "Убрать %@ из %@";
+"action_list_add" = "Добавить %@ в %@";
+"action_list_create" = "Создать список %@";
