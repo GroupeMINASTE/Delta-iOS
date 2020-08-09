@@ -236,15 +236,15 @@ class AlgorithmParser {
                                     let identifier = tokens.removeFirst()
                                     return SetAction(identifier, to: token)
                                 } else if value == .ListAdd && tokens.count >= 2 {
-                                    // Add "value" to "identifier"
+                                    // Add "token" to "identifier"
                                     let identifier = tokens.removeFirst()
-                                    let value = tokens.removeFirst()
-                                    return ListAddAction(value, to: identifier)
+                                    let token = tokens.removeFirst()
+                                    return ListAddAction(token, to: identifier)
                                 } else if value == .ListRemove && tokens.count >= 2 {
-                                    // Remove "value" from "identifier"
+                                    // Remove "token" from "identifier"
                                     let identifier = tokens.removeFirst()
-                                    let value = tokens.removeFirst()
-                                    return ListRemoveAction(value, to: identifier)
+                                    let token = tokens.removeFirst()
+                                    return ListRemoveAction(token, to: identifier)
                                 } else if value == .QuizAdd && tokens.count >= 2 {
                                     // Add input "text" with "correct" as correct answer
                                     let correct = tokens.removeFirst()
