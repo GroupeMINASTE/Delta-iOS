@@ -125,5 +125,5 @@
 "category_list" = "Lista";
 "action_list_remove" = "Quitar %@ de %@";
 "action_list_add" = "Añadir %@ a %@";
-"action_list_create" = "Creat la lista %@";
+"action_list_create" = "Crear la lista %@";
 "status_originDown" = "Parece que nuestro servidor no está disponible. ¡Intenta de nuevo más tarde!";
