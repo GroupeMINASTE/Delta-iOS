@@ -39,7 +39,7 @@ struct CalculError: Token, Error {
     }
     
     func equals(_ right: Token) -> Bool {
-        return defaultEquals(right)
+        return false
     }
     
     func asDouble() -> Double? {
