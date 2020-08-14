@@ -120,3 +120,8 @@
 "delete_account_success" = "Vaš nalog je izbrisan!";
 "delete_account_description" = "Dali ste sigurni da želite da izbrišate vaš nalog? Ovo je nepovratan!";
 "delete_account" = "Obriši moj nalog";
+"category_list" = "Lista";
+"action_list_remove" = "Izbriši %@ od %@";
+"action_list_add" = "Dodaj %@ na %@";
+"action_list_create" = "Napravi listu %@";
+"status_originDown" = "Izgleda da je naš server isključeno. Probajte kansnije!";
