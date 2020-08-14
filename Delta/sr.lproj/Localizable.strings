@@ -120,3 +120,8 @@
 "delete_account_success" = "Ваш налог је избрисан!";
 "delete_account_description" = "Дали сте сигурни да желите да избришате ваш налог? Ово је неповратна!";
 "delete_account" = "Обриши мој налог";
+"category_list" = "Листа";
+"action_list_remove" = "Укидај %@ од %@";
+"action_list_add" = "Додај %@ на %@";
+"action_list_create" = "Направи листу %@";
+"status_originDown" = "Изгледа да је наш сервер искљућен. Пробајте касније!";
