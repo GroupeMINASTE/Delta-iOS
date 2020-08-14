@@ -120,3 +120,8 @@
 "delete_account_success" = "Ihren Konto ist gelöscht!";
 "delete_account_description" = "Sind Sie sicher, dass sie ihren Konto löschen wollen? Das ist unumkehrbar!";
 "delete_account" = "Mein Konto löschen";
+"category_list" = "Liste";
+"action_list_remove" = "%@ von %@ löschen";
+"action_list_add" = "%@ zu %@ hinzufügen";
+"action_list_create" = "Liste Machen %@";
+"status_originDown" = "Es scheint unser server ist Offline. Bitte probieren Sie erneut Später!";
