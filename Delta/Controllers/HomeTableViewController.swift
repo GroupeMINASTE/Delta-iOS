@@ -275,7 +275,7 @@ class HomeTableViewController: UITableViewController, AlgorithmsChangedDelegate 
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
             } else if indexPath.row == 1 {
                 // Help and documentation
-                if let url = URL(string: "https://www.delta-math-helper.com/documentation") {
+                if let url = URL(string: "https://www.delta-algorithms.com/documentation") {
                     if #available(iOS 10, *) {
                         UIApplication.shared.open(url)
                     } else {
@@ -284,7 +284,7 @@ class HomeTableViewController: UITableViewController, AlgorithmsChangedDelegate 
                 }
             } else if indexPath.row == 2 {
                 // Follow us on Twitter
-                if let url = URL(string: "https://twitter.com/DeltaMathHelper") {
+                if let url = URL(string: "https://twitter.com/DeltaAlgorithms") {
                     if #available(iOS 10, *) {
                         UIApplication.shared.open(url)
                     } else {

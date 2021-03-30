@@ -4,8 +4,8 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:delta-math-helper.com</string>
-		<string>applinks:www.delta-math-helper.com</string>
+		<string>applinks:delta-algorithms.com</string>
+		<string>applinks:www.delta-algorithms.com</string>
 	</array>
 	<key>com.apple.developer.siri</key>
 	<true/>

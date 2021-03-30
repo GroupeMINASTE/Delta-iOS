@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func initializeAPI() {
         // Initialize API
-        APIConfiguration.current = APIConfiguration(host: "api.delta-math-helper.com", headers: {
+        APIConfiguration.current = APIConfiguration(host: "api.delta-algorithms.com", headers: {
             // Initialize a dict for headers
             var headers = [String: String]()
             
@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         // Check if user comes from URL
-        if let url = userActivity.webpageURL, url.host == "delta-math-helper.com" || url.host == "www.delta-math-helper.com" {
+        if let url = userActivity.webpageURL, url.host == "delta-algorithms.com" || url.host == "www.delta-algorithms.com" {
             // Check if the url corresponds to an algorithm
             if url.pathComponents.count == 3, url.pathComponents[1] == "algorithm", let id = Int64(url.pathComponents[2]) {
                 // Get home view controller
@@ -122,7 +122,7 @@ extension AppDelegate {
     
     @objc func openHelp(_ sender: Any) {
         // Help and documentation
-        if let url = URL(string: "https://www.delta-math-helper.com") {
+        if let url = URL(string: "https://www.delta-algorithms.com") {
             UIApplication.shared.open(url)
         }
     }

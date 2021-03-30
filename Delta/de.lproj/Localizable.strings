@@ -67,11 +67,11 @@
 "new_algorithm" = "Neues Algorithmus";
 "downloads" = "Heruntergeladen";
 "myalgorithms" = "Meine Algorithmen";
-"name" = "Delta: Mathe Hilfe";
+"name" = "Delta: Algorithms";
 "welcome_paragraph1" = "Delta funktioniert mit Algorithmen. Jeder Algorithmus löst ein Problem. (z.B.: eine Gleichung lösen)";
 "welcome_button" = "Los get's!";
 "welcome_paragraph2" = "Wählen Sie \"Neu Algorithmus\" auf die Startseite um der Editor zu öffnen. Dann, fügen Sie ein paar Aktionen ein um ein Problem zu lösen, und Speichern Sie ihren Algorithmus.";
-"welcome_title" = "Willkommen auf Delta: Math helper!";
+"welcome_title" = "Willkommen auf Delta: Algorithms!";
 "welcome_header4" = "Bereit ihren ersten Algorithmus zu einstellen?";
 "welcome_paragraph3" = "Herrunterladen fertiggestellt Algorithmen aus Delta Cloud oder teilen Sie dem Sie grade eingestellt haben.";
 "welcome_header3" = "Oder herunterladen Sie ein aus dem Cloud";

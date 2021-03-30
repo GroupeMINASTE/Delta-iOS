@@ -32,8 +32,13 @@ class Database {
         do {
             // Get database path
             if let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+                // If delta-math-helper.sqlite3 exists, rename it
+                if FileManager.default.fileExists(atPath: "\(path)/delta-math-helper.sqlite3") {
+                    try FileManager.default.moveItem(atPath: "\(path)/delta-math-helper.sqlite3", toPath: "\(path)/delta-algorithms.sqlite3")
+                }
+                
                 // Connect to database
-                db = try Connection("\(path)/delta-math-helper.sqlite3")
+                db = try Connection("\(path)/delta-algorithms.sqlite3")
                 
                 // Initialize tables
                 try db?.run(algorithms.create(ifNotExists: true) { table in

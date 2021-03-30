@@ -1,6 +1,6 @@
 // General part
 
-"name" = "Delta: Math helper";
+"name" = "Delta: Algorithms";
 "myalgorithms" = "Mis algoritmos";
 "downloads" = "Descargas";
 "new_algorithm" = "Nuevo algoritmo";
@@ -78,7 +78,7 @@
 "welcome_paragraph3" = "Descarga algoritmos listos desde el nube o comparte el algoritmo que acaba de crear.";
 "welcome_header1" = "¿Cómo funciona?";
 "welcome_header2" = "Crear un algoritmo";
-"welcome_title" = "¡Bienvenido en Delta: Math helper!";
+"welcome_title" = "¡Bienvenido en Delta: Algorithms!";
 "welcome_header4" = "¿Listo para crear su primero algoritmo?";
 "donate_thanks" = "¡Gracias por tu donación para nuestra organización!";
 "donate_footer" = "Esta donación ayuda nuestra organización para desarrollar sus proyectos, principalmente Extopy, la red social que somos desarrollando, que necesitara almacenamiento para sus servidores.";

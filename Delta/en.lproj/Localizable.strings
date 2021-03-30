@@ -1,6 +1,6 @@
 // General part
 
-"name" = "Delta: Math helper";
+"name" = "Delta: Algorithms";
 "myalgorithms" = "My algorithms";
 "downloads" = "Downloads";
 "new_algorithm" = "New algorithm";
@@ -114,7 +114,7 @@
 "category_quiz" = "Quiz";
 "category_settings" = "Settings";
 "category_add" = "Add an action";
-"welcome_title" = "Welcome to Delta: Math helper!";
+"welcome_title" = "Welcome to Delta: Algorithms!";
 "welcome_header1" = "How it works?";
 "welcome_paragraph1" = "Delta works with algorithms. Each algorithm solves a problem. (eg. solve an equation)";
 "welcome_header2" = "Create an algorithm";
