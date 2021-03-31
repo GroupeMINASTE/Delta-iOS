@@ -68,7 +68,7 @@
 "action_quiz_add_question" = "Dodaj ulazak %@ sa dobra odgovor %@";
 "action_quiz_add_paragraph" = "Dodaj tekst %@";
 "settings_name" = "Ime: %@";
-"welcome_title" = "Dobro došli na Delta: Matematički pomoćnik!";
+"welcome_title" = "Dobro došli na Delta: Algorithms!";
 "welcome_header3" = "Ili preuzmite jednu od Clouda";
 "welcome_button" = "Ajdemo!";
 "welcome_paragraph1" = "Delra radi s algoritmi. Svaku algoritmu reši jednu problem. (npr.: jednačine rešenje)";
