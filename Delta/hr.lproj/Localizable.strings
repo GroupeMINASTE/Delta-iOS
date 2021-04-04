@@ -1,5 +1,5 @@
 "instructions" = "Instrukciji";
-"name" = "Delta: Matematički Pomoćnik";
+"name" = "Delta: Algoritmi";
 "cloud_details" = "Detalje za izabrano algoritmu";
 "cloud_algorithms" = "Algoritmi na Cloud-u";
 "cloud" = "Cloud";
@@ -68,7 +68,7 @@
 "action_quiz_add_question" = "Dodaj ulazak %@ sa dobra odgovor %@";
 "action_quiz_add_paragraph" = "Dodaj tekst %@";
 "settings_name" = "Ime: %@";
-"welcome_title" = "Dobro došli na Delta: Matematički pomoćnik!";
+"welcome_title" = "Dobro došli na Delta: Algoritmi!";
 "welcome_header4" = "Spremno da napravite vaš prvu algoritmu?";
 "welcome_paragraph2" = "Izaberite \"Novu algoritmu\" na početna strana da otvorite urednik. Pa dodajte neke aktcije da rešite problem, i sačuvajte svoju algoritmu.";
 "welcome_paragraph3" = "Preuzmite već napraveni algoritmi iz Delta Cloud ili objavite ovaj što ste sam napravili.";
