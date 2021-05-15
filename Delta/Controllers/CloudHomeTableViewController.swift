@@ -8,6 +8,7 @@
 
 import UIKit
 import APIRequest
+import DigiAnalytics
 
 class CloudHomeTableViewController: UITableViewController, UISearchBarDelegate, StatusContainerDelegate {
     
@@ -60,6 +61,9 @@ class CloudHomeTableViewController: UITableViewController, UISearchBarDelegate, 
         
         // Load algorithms
         loadAlgorithms(reset: true)
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "cloud/home")
     }
     
     @objc func reloadContent(_ sender: UIRefreshControl) {
@@ -177,7 +181,7 @@ class CloudHomeTableViewController: UITableViewController, UISearchBarDelegate, 
 
 }
 
-protocol CloudAlgorithmSelectionDelegate: class {
+protocol CloudAlgorithmSelectionDelegate: AnyObject {
     
     func selectAlgorithm(_ algorithm: APIAlgorithm?)
     

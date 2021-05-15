@@ -8,6 +8,7 @@
 
 import UIKit
 import APIRequest
+import DigiAnalytics
 
 class CloudDetailsTableViewController: UITableViewController, CloudAlgorithmSelectionDelegate, StatusContainerDelegate {
     
@@ -88,6 +89,10 @@ class CloudDetailsTableViewController: UITableViewController, CloudAlgorithmSele
             self.reloadData(withStatus: status)
         }
         
+        // Send analytics
+        if let algorithm = algorithm {
+            DigiAnalytics.shared.send(path: "cloud/view/\(algorithm.id ?? -1)")
+        }
     }
     
     func refreshData() {
@@ -135,7 +140,7 @@ class CloudDetailsTableViewController: UITableViewController, CloudAlgorithmSele
 
 }
 
-protocol CloudAlgorithmOpenDelegate: class {
+protocol CloudAlgorithmOpenDelegate: AnyObject {
     
     func closeCloudAndOpen(algorithm: Algorithm)
     

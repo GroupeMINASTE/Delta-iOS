@@ -36,6 +36,8 @@
 		6A1B411124DC50A4004BE4E2 /* ComputeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B411024DC50A4004BE4E2 /* ComputeMode.swift */; };
 		6A1B411524DC5901004BE4E2 /* ListAddAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1B411424DC5901004BE4E2 /* ListAddAction.swift */; };
 		6A1F488F2356F7F100B3A006 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1F488E2356F7F100B3A006 /* Interval.swift */; };
+		6A28275926503FAA00822D4A /* DigiAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6A28275826503FAA00822D4A /* DigiAnalytics */; };
+		6A28275B2650400200822D4A /* DigiAnalyticsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A28275A2650400200822D4A /* DigiAnalyticsExtension.swift */; };
 		6A2F13AF23264D8100031DDA /* TokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2F13AE23264D8100031DDA /* TokenParser.swift */; };
 		6A32637B23250CE40056FA0E /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A32637A23250CE40056FA0E /* Vector.swift */; };
 		6A549F0224224F6C00E02570 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A549F0124224F6C00E02570 /* Quiz.swift */; };
@@ -156,6 +158,7 @@
 		6A1B411024DC50A4004BE4E2 /* ComputeMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputeMode.swift; sourceTree = "<group>"; };
 		6A1B411424DC5901004BE4E2 /* ListAddAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAddAction.swift; sourceTree = "<group>"; };
 		6A1F488E2356F7F100B3A006 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
+		6A28275A2650400200822D4A /* DigiAnalyticsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigiAnalyticsExtension.swift; sourceTree = "<group>"; };
 		6A2F13AE23264D8100031DDA /* TokenParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenParser.swift; sourceTree = "<group>"; };
 		6A32637A23250CE40056FA0E /* Vector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		6A549F0124224F6C00E02570 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
@@ -241,6 +244,7 @@
 				6AFFCFD324A7A63D003EA3B8 /* Keychain in Frameworks */,
 				6AB147E324BB0DF2005077F3 /* DonateViewController in Frameworks */,
 				6AF8C81E2463FAF1008CB9DC /* APIRequest in Frameworks */,
+				6A28275926503FAA00822D4A /* DigiAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +324,7 @@
 				6A0A8CCC2323EBE800F0C41C /* ArrayExtension.swift */,
 				6A0A8CD42324057800F0C41C /* AlgorithmExtension.swift */,
 				6AC36CDA23607A8200523F79 /* DateExtension.swift */,
+				6A28275A2650400200822D4A /* DigiAnalyticsExtension.swift */,
 				6A0A8CDA23244BB500F0C41C /* Int64Extension.swift */,
 				6A0A8CB12323A93C00F0C41C /* StringExtension.swift */,
 				6AC908EC2406238100F5F732 /* UIColorExtension.swift */,
@@ -470,6 +475,7 @@
 				6AF8C81D2463FAF1008CB9DC /* APIRequest */,
 				6AFFCFD224A7A63D003EA3B8 /* Keychain */,
 				6AB147E224BB0DF2005077F3 /* DonateViewController */,
+				6A28275826503FAA00822D4A /* DigiAnalytics */,
 			);
 			productName = Delta;
 			productReference = 3203EF66214FB132005C287C /* Delta.app */;
@@ -482,7 +488,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Nathan FALLET";
 				TargetAttributes = {
 					3203EF65214FB132005C287C = {
@@ -519,6 +525,7 @@
 				6AF8C81C2463FAF1008CB9DC /* XCRemoteSwiftPackageReference "APIRequest.swift" */,
 				6AFFCFD124A7A63D003EA3B8 /* XCRemoteSwiftPackageReference "Keychain.swift" */,
 				6AB147E124BB0DF1005077F3 /* XCRemoteSwiftPackageReference "DonateViewController" */,
+				6A28275726503FAA00822D4A /* XCRemoteSwiftPackageReference "DigiAnalytics" */,
 			);
 			productRefGroup = 3203EF67214FB132005C287C /* Products */;
 			projectDirPath = "";
@@ -574,6 +581,7 @@
 				6AFFCFD524A7AE7B003EA3B8 /* AccountViewController.swift in Sources */,
 				6AED92CB235F65AB009EEAFE /* EditorPreviewTableViewCell.swift in Sources */,
 				6AED92C5235F4675009EEAFE /* EditorAddTableViewCell.swift in Sources */,
+				6A28275B2650400200822D4A /* DigiAnalyticsExtension.swift in Sources */,
 				6A99A71F2406B195002C9E54 /* CloudDetailsTableViewCell.swift in Sources */,
 				6A0A8CB22323A93C00F0C41C /* StringExtension.swift in Sources */,
 				6A0A8CDB23244BB500F0C41C /* Int64Extension.swift in Sources */,
@@ -798,7 +806,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Delta/Delta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 40;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = Delta/Info.plist;
@@ -807,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.6.3;
+				MARKETING_VERSION = 3.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.zabricraft.Delta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -823,7 +831,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Delta/Delta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 39;
+				CURRENT_PROJECT_VERSION = 40;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				DEVELOPMENT_TEAM = ZL9396WK65;
 				INFOPLIST_FILE = Delta/Info.plist;
@@ -832,7 +840,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.6.3;
+				MARKETING_VERSION = 3.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = fr.zabricraft.Delta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -865,6 +873,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6A28275726503FAA00822D4A /* XCRemoteSwiftPackageReference "DigiAnalytics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GroupeMINASTE/DigiAnalytics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		6AB147E124BB0DF1005077F3 /* XCRemoteSwiftPackageReference "DonateViewController" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/GroupeMINASTE/DonateViewController.git";
@@ -900,6 +916,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6A28275826503FAA00822D4A /* DigiAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A28275726503FAA00822D4A /* XCRemoteSwiftPackageReference "DigiAnalytics" */;
+			productName = DigiAnalytics;
+		};
 		6AB147E224BB0DF2005077F3 /* DonateViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6AB147E124BB0DF1005077F3 /* XCRemoteSwiftPackageReference "DonateViewController" */;

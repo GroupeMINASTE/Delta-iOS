@@ -8,6 +8,7 @@
 
 import UIKit
 import APIRequest
+import DigiAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -82,9 +83,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
+    func initializeAnalytics() {
+        // Send first open
+        let datas = UserDefaults.standard
+        if !datas.bool(forKey: "first_open") {
+            DigiAnalytics.shared.send(path: "first_open")
+            datas.set(true, forKey: "first_open")
+            datas.synchronize()
+        }
+        
+        // Send open
+        DigiAnalytics.shared.send(path: "open_app")
+    }
+    
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         // Check if user comes from URL
         if let url = userActivity.webpageURL, url.host == "delta-algorithms.com" || url.host == "www.delta-algorithms.com" {
+            // Set referrer
+            DigiAnalytics.shared.referrer = url.absoluteString
+            
             // Check if the url corresponds to an algorithm
             if url.pathComponents.count == 3, url.pathComponents[1] == "algorithm", let id = Int64(url.pathComponents[2]) {
                 // Get home view controller

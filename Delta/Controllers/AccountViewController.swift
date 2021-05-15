@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DigiAnalytics
 
 class AccountViewController: UIViewController {
     
@@ -83,6 +84,9 @@ class AccountViewController: UIViewController {
         
         // Load account
         loadAccount()
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "account")
     }
     
     @objc func close(_ sender: UIBarButtonItem) {
@@ -158,6 +162,9 @@ class AccountViewController: UIViewController {
                 let loading = UIAlertController(title: "loading".localized(), message: nil, preferredStyle: .alert)
                 self.present(loading, animated: true, completion: nil)
                 
+                // Send analytics
+                DigiAnalytics.shared.send(path: "account/sign_in")
+                
                 // Start login process
                 Account.current.login(username: username, password: password) { status in
                     // Refresh the UI
@@ -212,6 +219,9 @@ class AccountViewController: UIViewController {
                 // Show a loading
                 let loading = UIAlertController(title: "loading".localized(), message: nil, preferredStyle: .alert)
                 self.present(loading, animated: true, completion: nil)
+                
+                // Send analytics
+                DigiAnalytics.shared.send(path: "account/sign_up")
                 
                 // Start register process
                 Account.current.register(name: name, username: username, password: password) { status in
@@ -283,6 +293,9 @@ class AccountViewController: UIViewController {
                 let loading = UIAlertController(title: "loading".localized(), message: nil, preferredStyle: .alert)
                 self.present(loading, animated: true, completion: nil)
                 
+                // Send analytics
+                DigiAnalytics.shared.send(path: "account/edit")
+                
                 // Start register process
                 Account.current.editProfile(name: name, username: username, password: password) { status in
                     // Refresh the UI
@@ -316,6 +329,9 @@ class AccountViewController: UIViewController {
             // Show a loading
             let loading = UIAlertController(title: "status_downloading".localized(), message: nil, preferredStyle: .alert)
             self.present(loading, animated: true, completion: nil)
+            
+            // Send analytics
+            DigiAnalytics.shared.send(path: "account/download_data")
             
             // Download data
             Account.current.downloadData { data, status in
@@ -351,6 +367,9 @@ class AccountViewController: UIViewController {
                 // Show a loading
                 let loading = UIAlertController(title: "loading".localized(), message: nil, preferredStyle: .alert)
                 self.present(loading, animated: true, completion: nil)
+                
+                // Send analytics
+                DigiAnalytics.shared.send(path: "account/delete")
                 
                 // Delete data
                 Account.current.delete { status in

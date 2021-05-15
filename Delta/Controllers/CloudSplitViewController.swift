@@ -69,7 +69,7 @@ class CloudSplitViewController: UISplitViewController, UISplitViewControllerDele
 
 }
 
-protocol StatusContainerDelegate: class {
+protocol StatusContainerDelegate: AnyObject {
     
     func getStatusLabel() -> UILabel
     

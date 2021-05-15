@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DigiAnalytics
 
 class CloudSettingsTableViewController: UITableViewController {
     
@@ -44,6 +45,9 @@ class CloudSettingsTableViewController: UITableViewController {
         
         // Fetch metadatas
         fetchMetadatas()
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "cloud/settings")
     }
     
     func fetchMetadatas() {
@@ -69,6 +73,9 @@ class CloudSettingsTableViewController: UITableViewController {
         // Create an alert (for progress)
         let alert = UIAlertController(title: "status_uploading".localized(), message: nil, preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "cloud/upload")
         
         // Start uploading
         algorithm.toAPIAlgorithm(public: `public` ?? false, notes: notes ?? "").upload { data, status in
@@ -96,6 +103,9 @@ class CloudSettingsTableViewController: UITableViewController {
         // Create an alert (for progress)
         let alert = UIAlertController(title: "status_deleting".localized(), message: nil, preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "cloud/delete")
         
         // Start deleting
         algorithm.toAPIAlgorithm().delete { data, status in

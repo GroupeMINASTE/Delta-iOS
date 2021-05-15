@@ -9,6 +9,7 @@
 import UIKit
 import StoreKit
 import DonateViewController
+import DigiAnalytics
 
 class HomeTableViewController: UITableViewController, AlgorithmsChangedDelegate {
     
@@ -227,6 +228,7 @@ class HomeTableViewController: UITableViewController, AlgorithmsChangedDelegate 
                 navigationController.modalPresentationStyle = .fullScreen
                 
                 // Show it
+                DigiAnalytics.shared.send(path: "algorithm/new")
                 present(navigationController, animated: true, completion: nil)
             } else if indexPath.row == 1 {
                 // Open the cloud
@@ -395,7 +397,7 @@ class HomeTableViewController: UITableViewController, AlgorithmsChangedDelegate 
 
 }
 
-protocol AlgorithmSelectionDelegate: class {
+protocol AlgorithmSelectionDelegate: AnyObject {
     
     func selectAlgorithm(_ algorithm: Algorithm?)
     

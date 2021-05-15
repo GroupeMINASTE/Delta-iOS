@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DigiAnalytics
 
 class AlgorithmTableViewController: UITableViewController, AlgorithmSelectionDelegate, InputChangedDelegate {
     
@@ -51,6 +52,11 @@ class AlgorithmTableViewController: UITableViewController, AlgorithmSelectionDel
         
         // Update result shown on screen
         updateResult()
+        
+        // Send analytics
+        if algorithm != nil {
+            DigiAnalytics.shared.send(path: "algorithm/view")
+        }
     }
     
     func inputChanged(_ input: (String, String)?) {
@@ -146,13 +152,13 @@ class AlgorithmTableViewController: UITableViewController, AlgorithmSelectionDel
 
 }
 
-protocol InputChangedDelegate: class {
+protocol InputChangedDelegate: AnyObject {
     
     func inputChanged(_ input: (String, String)?)
     
 }
 
-protocol AlgorithmsChangedDelegate: class {
+protocol AlgorithmsChangedDelegate: AnyObject {
     
     func algorithmsChanged()
     

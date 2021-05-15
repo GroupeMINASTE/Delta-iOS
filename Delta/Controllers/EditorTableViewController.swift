@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DigiAnalytics
 
 class EditorTableViewController: UITableViewController, EditorLineChangedDelegate, UITableViewDragDelegate, UITableViewDropDelegate {
     
@@ -48,6 +49,9 @@ class EditorTableViewController: UITableViewController, EditorLineChangedDelegat
             tableView.dragDelegate = self
             tableView.dropDelegate = self
         }
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "algorithm/edit")
     }
     
     func editorLineChanged(_ line: EditorLine?, at index: Int) {
@@ -286,7 +290,7 @@ class EditorTableViewController: UITableViewController, EditorLineChangedDelegat
     
 }
 
-protocol EditorLineChangedDelegate: class {
+protocol EditorLineChangedDelegate: AnyObject {
     
     func editorLineChanged(_ line: EditorLine?, at index: Int)
     func editorLineAdded(_ action: Action, at index: Int)

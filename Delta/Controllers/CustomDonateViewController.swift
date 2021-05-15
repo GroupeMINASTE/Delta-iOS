@@ -8,6 +8,7 @@
 
 import UIKit
 import DonateViewController
+import DigiAnalytics
 
 class CustomDonateViewController: DonateViewController, DonateViewControllerDelegate {
 
@@ -28,6 +29,9 @@ class CustomDonateViewController: DonateViewController, DonateViewControllerDele
         
         // Add close button
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "close".localized(), style: .plain, target: self, action: #selector(close(_:)))
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "donate")
     }
     
     @objc func close(_ sender: UIBarButtonItem) {

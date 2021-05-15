@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DigiAnalytics
 
 class QuizViewController: UIViewController, UITextFieldDelegate {
 
@@ -126,6 +127,9 @@ class QuizViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanged(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardChanged(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // Send analytics
+        DigiAnalytics.shared.send(path: "quiz")
     }
     
     @objc func close(_ sender: UIBarButtonItem) {

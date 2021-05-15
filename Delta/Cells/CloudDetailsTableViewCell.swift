@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DigiAnalytics
 
 class CloudDetailsTableViewCell: UITableViewCell {
     
@@ -146,6 +147,7 @@ class CloudDetailsTableViewCell: UITableViewCell {
         // Get button and check what to do
         let button = getButton()
         if button == "download" || button == "update" {
+            DigiAnalytics.shared.send(path: "cloud/download/\(algorithm?.id ?? -1)")
             open(algorithm: download())
         } else {
             open(algorithm: onDevice)
@@ -164,6 +166,7 @@ class CloudDetailsTableViewCell: UITableViewCell {
             
             // Show the activity controller
             controller.present(shareVC, animated: true, completion: nil)
+            DigiAnalytics.shared.send(path: "cloud/share/\(id)")
         }
     }
     
