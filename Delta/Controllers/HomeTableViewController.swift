@@ -277,6 +277,7 @@ class HomeTableViewController: UITableViewController, AlgorithmsChangedDelegate 
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
             } else if indexPath.row == 1 {
                 // Help and documentation
+                DigiAnalytics.shared.send(path: "documentation")
                 if let url = URL(string: "https://www.delta-algorithms.com/documentation") {
                     if #available(iOS 10, *) {
                         UIApplication.shared.open(url)

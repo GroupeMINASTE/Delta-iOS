@@ -10,6 +10,10 @@ import DigiAnalytics
 
 extension DigiAnalytics {
     
+    #if DEBUG
+    static let shared = DigiAnalytics(baseURL: "https://debug.delta-algorithms.com/")
+    #else
     static let shared = DigiAnalytics(baseURL: "https://app.delta-algorithms.com/")
+    #endif
     
 }
